@@ -1,6 +1,5 @@
 'use strict';
 module.exports = function(app) {
-  var controllers = require('../controllers/listControllers');
   var controllerUsers = require('../controllers/controllerUsers');
   var controllerClients = require('../controllers/controllerClients');
   var authController = require('../controllers/authController');

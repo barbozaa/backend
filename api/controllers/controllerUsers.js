@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  User = mongoose.model('Users'),
+  User = require('../models/usersModels'),
   jwt    = require('jsonwebtoken'), // used to create, sign, and verify tokens
   config = require('../../config'); // get our config file;
 
