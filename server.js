@@ -7,10 +7,25 @@ var express = require('express'),
   config = require('./config'),
   jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens;
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+    // intercept OPTIONS method
+    if ('OPTIONS' == req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
+
+app.use(allowCrossDomain)
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/Tododb'); 
+mongoose.connect('mongodb://127.0.0.1:27017/test'); 
 app.set('superSecret', config.secret); // secret variable
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -57,4 +72,4 @@ app.use(function(req, res, next) {
 app.listen(port);
 
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('RESTful API server started on: ' + port);

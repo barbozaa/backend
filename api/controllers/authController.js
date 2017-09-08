@@ -7,9 +7,10 @@ var mongoose = require('mongoose'),
   config = require('../../config'); // get our config file;
 
 exports.authenticateUsers = function(req, res){
+  console.log(req.body.username);
   // find the user
   User.findOne({
-    name: req.body.name
+    username: req.body.username
   }, function(err, user) {
 
     if (err) throw err;
@@ -33,7 +34,8 @@ exports.authenticateUsers = function(req, res){
         res.json({
           success: true,
           message: 'Enjoy your token!',
-          token: token
+          token: token,
+          id: user._id
         });
       }   
 
@@ -44,7 +46,7 @@ exports.authenticateUsers = function(req, res){
 exports.authenticateClients = function(req, res){
   // find the client
   Client.findOne({
-    name: req.body.name
+    username: req.body.username
   }, function(err, client) {
 
     if (err) throw err;
@@ -68,7 +70,8 @@ exports.authenticateClients = function(req, res){
         res.json({
           success: true,
           message: 'Enjoy your token!',
-          token: token
+          token: token,
+          id: user._id
         });
       }   
 
