@@ -2,7 +2,6 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  Task = require('./api/models/listModels'), //created model loading here
   bodyParser = require('body-parser'),
   morgan      = require('morgan'), // get our mongoose model
   config = require('./config'),
