@@ -7,7 +7,6 @@ var mongoose = require('mongoose'),
   config = require('../../config'); // get our config file;
 
 exports.authenticateUsers = function(req, res){
-  console.log(req.body.username);
   // find the user
   User.findOne({
     username: req.body.username
