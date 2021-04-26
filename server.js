@@ -25,7 +25,7 @@ app.use(allowCrossDomain)
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/test'); 
+mongoose.connect('mongodb://127.0.0.1:27017/test', { useNewUrlParser: true, useUnifiedTopology: true }); 
 app.set('superSecret', config.secret); // secret variable
 
 app.use(bodyParser.urlencoded({ extended: false }));
