@@ -12,7 +12,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "jsonwebtoken": "^8.0.0",
+    "jsonwebtoken": "^9.0.0",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.5",
     "mongoose-update-if-current": "^1.4.0",
